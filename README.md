@@ -141,7 +141,6 @@ PromptPulse/
 │   └── subtitles.ass                # High-contrast burned-in subtitle badges
 ├── submission/                      # Official Submission Write-up & Licensing
 │   ├── devpost_submission.md        # Comprehensive Devpost submission text
-│   ├── AI_DISCLOSURE.md             # Transparent AI disclosure
 │   └── LICENSE                      # MIT Open Source License
 ├── assets/                          # Bespoke Brand Visuals
 │   ├── logo.png                     # Vector brand badge
