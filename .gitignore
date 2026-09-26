@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Video temp recordings & intermediate audio
+demo/raw_video/
+demo/audio_segments/
+demo/concat_list.txt
+
+# OS & Editor
+.DS_Store
+.vscode/
+.idea/
+
+# Vercel
+.vercel
