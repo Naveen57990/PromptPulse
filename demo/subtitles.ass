@@ -1,0 +1,22 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: RecordlyStyle,Plus Jakarta Sans,34,&H00FFFFFF,&H00000000,&H80000000,&HB00B0F19,-1,0,0,0,100,100,0,0,3,10,0,2,60,60,54,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:09.35,RecordlyStyle,,0,0,0,,Tweaking prompts blindly often breaks edge cases and inflates tokens.
+Dialogue: 0,0:00:09.35,0:00:16.82,RecordlyStyle,,0,0,0,,JSON schemas fail, token usage spikes, and cloud costs explode.
+Dialogue: 0,0:00:16.82,0:00:25.58,RecordlyStyle,,0,0,0,,Introducing PromptPulse Studio: Zero-setup, local-first prompt regression testing.
+Dialogue: 0,0:00:25.58,0:00:34.29,RecordlyStyle,,0,0,0,,A local workbench for schema validation, regression scoring, and token telemetry.
+Dialogue: 0,0:00:34.29,0:00:45.76,RecordlyStyle,,0,0,0,,Side-by-side prompt editor with instant variable extraction and token counting.
+Dialogue: 0,0:00:45.76,0:01:00.26,RecordlyStyle,,0,0,0,,Multi-model pricing projections across GPT-4o, Claude 3.5 Sonnet, and Gemini.
+Dialogue: 0,0:01:00.26,0:01:12.00,RecordlyStyle,,0,0,0,,Sub-millisecond evaluation across realistic production and adversarial scenarios.
+Dialogue: 0,0:01:12.00,0:01:22.43,RecordlyStyle,,0,0,0,,Truly interactive: Test custom scenarios, variables, and schemas on the fly.
+Dialogue: 0,0:01:22.43,0:01:33.40,RecordlyStyle,,0,0,0,,Production-ready CLI and pytest suite for seamless CI/CD integration.
+Dialogue: 0,0:01:33.40,0:01:44.95,RecordlyStyle,,0,0,0,,PromptPulse Studio: Local-First. Deterministic. Production-Ready.

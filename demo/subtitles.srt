@@ -1,0 +1,39 @@
+1
+00:00:00,000 --> 00:00:09,359
+Tweaking prompts blindly often breaks edge cases and inflates tokens.
+
+2
+00:00:09,359 --> 00:00:16,823
+JSON schemas fail, token usage spikes, and cloud costs explode.
+
+3
+00:00:16,823 --> 00:00:25,583
+Introducing PromptPulse Studio: Zero-setup, local-first prompt regression testing.
+
+4
+00:00:25,583 --> 00:00:34,295
+A local workbench for schema validation, regression scoring, and token telemetry.
+
+5
+00:00:34,295 --> 00:00:45,767
+Side-by-side prompt editor with instant variable extraction and token counting.
+
+6
+00:00:45,767 --> 00:01:00,263
+Multi-model pricing projections across GPT-4o, Claude 3.5 Sonnet, and Gemini.
+
+7
+00:01:00,263 --> 00:01:12,000
+Sub-millisecond evaluation across realistic production and adversarial scenarios.
+
+8
+00:01:12,000 --> 00:01:22,439
+Truly interactive: Test custom scenarios, variables, and schemas on the fly.
+
+9
+00:01:22,439 --> 00:01:33,408
+Production-ready CLI and pytest suite for seamless CI/CD integration.
+
+10
+00:01:33,408 --> 00:01:44,951
+PromptPulse Studio: Local-First. Deterministic. Production-Ready.

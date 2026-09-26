@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "text": "Every engineer building with large language models knows this exact pain: you tweak a system prompt to fix one edge case, and you silently break three others.",
+    "subtitle": "Tweaking prompts blindly often breaks edge cases and inflates tokens."
+  },
+  {
+    "id": 2,
+    "text": "Your JSON schemas fail in production, token usage spikes by forty percent, and unexpected cloud bills start piling up.",
+    "subtitle": "JSON schemas fail, token usage spikes, and cloud costs explode."
+  },
+  {
+    "id": 3,
+    "text": "Existing observability platforms require cloud accounts, remote API keys, and monthly subscriptions. That is why we built PromptPulse Studio.",
+    "subtitle": "Introducing PromptPulse Studio: Zero-setup, local-first prompt regression testing."
+  },
+  {
+    "id": 4,
+    "text": "PromptPulse Studio is a zero-latency, local-first workbench for prompt regression testing, schema validation, and multi-model token economics.",
+    "subtitle": "A local workbench for schema validation, regression scoring, and token telemetry."
+  },
+  {
+    "id": 5,
+    "text": "On the left, we have our production baseline prompt. On the right, our proposed candidate refactor. The engine automatically detects template variables and calculates token counts in real time.",
+    "subtitle": "Side-by-side prompt editor with instant variable extraction and token counting."
+  },
+  {
+    "id": 6,
+    "text": "Notice our token economy bar below: it dynamically benchmarks costs across GPT-4o, Claude 3.5 Sonnet, and Gemini 1.5 Pro, projecting over three hundred dollars in monthly savings per million queries.",
+    "subtitle": "Multi-model pricing projections across GPT-4o, Claude 3.5 Sonnet, and Gemini."
+  },
+  {
+    "id": 7,
+    "text": "When we click Run Evaluation Suite, PromptPulse evaluates five real-world test cases in sub-milliseconds—testing production outages, invoice billing, and adversarial prompt injections.",
+    "subtitle": "Sub-millisecond evaluation across realistic production and adversarial scenarios."
+  },
+  {
+    "id": 8,
+    "text": "Best of all, judges and developers can test their own data. Simply click Add Test Case, define custom variables and expected schemas, and get instant regression verdicts.",
+    "subtitle": "Truly interactive: Test custom scenarios, variables, and schemas on the fly."
+  },
+  {
+    "id": 9,
+    "text": "With our standalone Python CLI and automated pytest suite, you can run PromptPulse directly in your CI/CD pipelines to block regressions before code reaches production.",
+    "subtitle": "Production-ready CLI and pytest suite for seamless CI/CD integration."
+  },
+  {
+    "id": 10,
+    "text": "PromptPulse Studio: 100% open source, zero external API dependencies, and ready to use right now. Stop guessing your prompt performance—start verifying it with PromptPulse.",
+    "subtitle": "PromptPulse Studio: Local-First. Deterministic. Production-Ready."
+  }
+]
