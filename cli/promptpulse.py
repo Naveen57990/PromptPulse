@@ -10,10 +10,18 @@ import json
 import argparse
 from typing import Dict, List, Any
 
-# Ensure project root is in python path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+# Ensure project root and parent dir are in python path
+_repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+_parent_root = os.path.abspath(os.path.join(_repo_root, ".."))
+if _repo_root not in sys.path:
+    sys.path.insert(0, _repo_root)
+if _parent_root not in sys.path:
+    sys.path.insert(0, _parent_root)
 
-from promptpulse.engine.evaluator import PromptEvaluator, TestCase, STANDARD_MODELS
+try:
+    from engine.evaluator import PromptEvaluator, TestCase, STANDARD_MODELS
+except ImportError:
+    from promptpulse.engine.evaluator import PromptEvaluator, TestCase, STANDARD_MODELS
 
 # Built-in reference baseline & candidate prompts
 DEFAULT_BASELINE_PROMPT = """You are an enterprise customer support triage agent.

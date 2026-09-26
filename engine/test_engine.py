@@ -5,12 +5,31 @@ Works with both pytest and standard python3 -m unittest.
 """
 
 import unittest
-from promptpulse.engine.evaluator import (
-    PromptEvaluator,
-    ModelPricing,
-    TestCase,
-    STANDARD_MODELS
-)
+import sys
+import os
+
+# Add repo root and parent directory to sys.path for universal portability
+_repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+_parent_root = os.path.abspath(os.path.join(_repo_root, ".."))
+if _repo_root not in sys.path:
+    sys.path.insert(0, _repo_root)
+if _parent_root not in sys.path:
+    sys.path.insert(0, _parent_root)
+
+try:
+    from engine.evaluator import (
+        PromptEvaluator,
+        ModelPricing,
+        TestCase,
+        STANDARD_MODELS
+    )
+except ImportError:
+    from promptpulse.engine.evaluator import (
+        PromptEvaluator,
+        ModelPricing,
+        TestCase,
+        STANDARD_MODELS
+    )
 
 
 class TestPromptEvaluator(unittest.TestCase):
