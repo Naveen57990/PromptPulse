@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PromptPulse Studio — Local-First Prompt Regression & Token Economy Workbench</title>
+  <meta name="description" content="Deterministic prompt regression testing, output schema validation, and multi-model token cost telemetry for production AI engineering.">
+  
+  <!-- Google Fonts: Space Grotesk, Plus Jakarta Sans, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-group">
+        <div class="brand-icon">⚡</div>
+        <div class="brand-info">
+          <div class="brand-title-row">
+            <h1 class="brand-name">PromptPulse Studio</h1>
+            <span class="version-tag">v1.0.0</span>
+          </div>
+          <p class="brand-tagline">Local-First Prompt Regression & Token Economy Workbench</p>
+        </div>
+      </div>
+
+      <div class="header-telemetry">
+        <div class="status-indicator">
+          <span class="pulse-dot"></span>
+          <span class="status-text">Deterministic Engine Active</span>
+        </div>
+        <div class="header-actions">
+          <button id="runAllBtn" class="btn btn-primary">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <span>Run Evaluation Suite</span>
+          </button>
+          <button id="addTestCaseBtn" class="btn btn-secondary">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span>Add Test Case</span>
+          </button>
+          <button id="exportReportBtn" class="btn btn-ghost">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span>Export Report</span>
+          </button>
+          <button id="resetDefaultsBtn" class="btn btn-ghost-subtle" title="Reset to reference templates">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="main-container">
+
+    <!-- Overall Scorecard Overview -->
+    <section class="overview-grid">
+      <div class="stat-card">
+        <div class="stat-label">Regression Verdict</div>
+        <div class="stat-value" id="overallVerdict">PASS</div>
+        <div class="stat-subtext" id="verdictDetail">0 regressions across 5 tests</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-label">Token Consumption Delta</div>
+        <div class="stat-value text-emerald" id="overallTokenDelta">-37.5%</div>
+        <div class="stat-subtext" id="tokenSavingsSubtext">152 tokens → 95 tokens avg</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-label">Projected Net Savings (1M Calls)</div>
+        <div class="stat-value text-emerald" id="overallCostSavings">$305.00</div>
+        <div class="stat-subtext">Basis: GPT-4o Production Tier</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-label">Schema Integrity</div>
+        <div class="stat-value text-indigo" id="overallSchemaRate">100%</div>
+        <div class="stat-subtext">5/5 JSON validations passed</div>
+      </div>
+    </section>
+
+    <!-- Multi-Model Economics Telemetry -->
+    <section class="economics-section">
+      <div class="section-header-row">
+        <div>
+          <h2 class="section-heading">Multi-Model Cost Projections</h2>
+          <p class="section-subheading">Simulated monthly expenditure based on 1,000,000 production queries.</p>
+        </div>
+        <div class="volume-control">
+          <label for="volumeSelect" class="volume-label">Query Volume:</label>
+          <select id="volumeSelect" class="form-select">
+            <option value="100000">100,000 / month</option>
+            <option value="500000">500,000 / month</option>
+            <option value="1000000" selected>1,000,000 / month</option>
+            <option value="5000000">5,000,000 / month</option>
+            <option value="10000000">10,000,000 / month</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="models-grid" id="modelsGrid">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- Dual Prompt Comparison Workbench -->
+    <section class="workbench-section">
+      <div class="section-header-row">
+        <div>
+          <h2 class="section-heading">Dual Prompt Variant Workbench</h2>
+          <p class="section-subheading">Compare baseline production instructions against proposed candidate refactors with live template token interpolation.</p>
+        </div>
+        <div class="diff-telemetry-badge" id="diffBadge">
+          <span>Tokens: </span>
+          <span class="mono" id="tokenDiffPill">152 vs 95 (-37.5%)</span>
+        </div>
+      </div>
+
+      <div class="prompt-split-grid">
+        <!-- Prompt A: Baseline -->
+        <div class="prompt-card">
+          <div class="prompt-card-header">
+            <div class="prompt-tag-group">
+              <span class="badge badge-neutral">Variant A</span>
+              <span class="prompt-title">Production Baseline</span>
+            </div>
+            <div class="prompt-metrics">
+              <span class="metric-pill" id="tokenCountA">152 tokens</span>
+              <span class="metric-pill" id="charCountA">598 chars</span>
+            </div>
+          </div>
+          <div class="textarea-wrapper">
+            <textarea id="promptA" class="code-textarea" spellcheck="false" placeholder="Enter baseline prompt template with {{variables}}..."></textarea>
+          </div>
+          <div class="variable-chip-row" id="varsA">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Prompt B: Candidate -->
+        <div class="prompt-card candidate-card">
+          <div class="prompt-card-header">
+            <div class="prompt-tag-group">
+              <span class="badge badge-primary">Variant B</span>
+              <span class="prompt-title">Candidate Refactor</span>
+            </div>
+            <div class="prompt-metrics">
+              <span class="metric-pill text-emerald" id="tokenCountB">95 tokens</span>
+              <span class="metric-pill" id="charCountB">318 chars</span>
+            </div>
+          </div>
+          <div class="textarea-wrapper">
+            <textarea id="promptB" class="code-textarea" spellcheck="false" placeholder="Enter candidate prompt template with {{variables}}..."></textarea>
+          </div>
+          <div class="variable-chip-row" id="varsB">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Test Case Execution Suite -->
+    <section class="test-suite-section">
+      <div class="section-header-row">
+        <div>
+          <h2 class="section-heading">Regression Test Suite</h2>
+          <p class="section-subheading">Simulate real-world edge cases, injection attempts, and schema verification.</p>
+        </div>
+        <div class="filter-controls">
+          <button class="filter-btn active" data-filter="all">All (<span id="countAll">5</span>)</button>
+          <button class="filter-btn" data-filter="pass">Pass (<span id="countPass">5</span>)</button>
+          <button class="filter-btn" data-filter="regression">Regressions (<span id="countRegression">0</span>)</button>
+          <button class="filter-btn" data-filter="warning">Warnings (<span id="countWarning">0</span>)</button>
+        </div>
+      </div>
+
+      <div class="test-cases-list" id="testCasesContainer">
+        <!-- Rendered dynamically by app.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Add Custom Test Case Modal -->
+  <div class="modal-backdrop" id="customTestModal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Create Custom Regression Test Case</h3>
+        <button id="closeModalBtn" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label" for="newTestName">Test Case Name</label>
+          <input type="text" id="newTestName" class="form-input" placeholder="e.g., Multi-Currency Refund Edge Case">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="newTestDesc">Description & Goal</label>
+          <input type="text" id="newTestDesc" class="form-input" placeholder="e.g., Verifies that non-USD currency codes adhere to ISO 4217.">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Template Input Variables (JSON)</label>
+          <textarea id="newTestVariables" class="form-textarea mono" rows="3" placeholder='{"inquiry_text": "Need refund of 450 EUR", "user_tier": "ENTERPRISE"}'></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Expected Output Schema (Key -> Type)</label>
+          <textarea id="newTestSchema" class="form-textarea mono" rows="3" placeholder='{"ticket_id": "string", "category": "string", "urgency": "string", "summary": "string"}'></textarea>
+        </div>
+
+        <div class="grid-2-col">
+          <div class="form-group">
+            <label class="form-label">Simulated Output A</label>
+            <textarea id="newOutputA" class="form-textarea mono" rows="3" placeholder='{"ticket_id": "TKT-101", "category": "BILLING", "urgency": "MEDIUM", "summary": "Refund 450 EUR"}'></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Simulated Output B</label>
+            <textarea id="newOutputB" class="form-textarea mono" rows="3" placeholder='{"ticket_id": "TKT-101", "category": "BILLING", "urgency": "MEDIUM", "summary": "EUR refund request"}'></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="cancelModalBtn" class="btn btn-ghost">Cancel</button>
+        <button id="saveCustomTestBtn" class="btn btn-primary">Save & Run Evaluation</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <span class="mono">PromptPulse Studio</span> — Production Prompt Regression & Token Economy Workbench
+      </div>
+      <div class="footer-right">
+        <span>Zero External API Dependencies</span>
+        <span class="separator">•</span>
+        <span>Local-First & Client-Side Certified</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
